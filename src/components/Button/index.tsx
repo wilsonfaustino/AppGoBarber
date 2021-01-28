@@ -1,10 +1,16 @@
 import React from 'react';
+import { RectButtonProperties } from 'react-native-gesture-handler';
 
-import {Container, ButtonText} from './styles';
+import { Container, ButtonText } from './styles';
 
-const Button: React.FC = ({children}) => {
+interface ButtonProps extends RectButtonProperties {
+  children: string;
+}
+
+// eslint-disable-next-line react/prop-types
+const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
   return (
-    <Container>
+    <Container {...rest}>
       <ButtonText>{children}</ButtonText>
     </Container>
   );
